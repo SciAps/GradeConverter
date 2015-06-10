@@ -151,7 +151,9 @@ public class GradeConverter {
                     }
 
                     if(weightColumns.containsKey(e)) {
-                        spec.weight = Double.parseDouble(line[weightColumns.get(e)]);
+                        if(StringUtils.isNotBlank(line[weightColumns.get(e)])) {
+                            spec.weight = Double.parseDouble(line[weightColumns.get(e)]);
+                        }
                     } else {
                         spec.weight = 1.0;
                     }
